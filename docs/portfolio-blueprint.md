@@ -42,6 +42,7 @@ The portfolio is structured as a focused single-page application with standard H
 ---
 
 ## 4. Navigation Architecture
+- **Design & Usability**: Understated, responsive, accessible, and easy to use.
 - **Header Navigation**: A sticky or fixed top navigation bar containing the owner's name/branding and jump links to each section (`#about`, `#skills`, `#projects`, `#experience`, `#contact`).
 - **Responsive Mobile Navigation**: A lightweight, accessible toggle menu that opens and closes on mobile viewports using simple React state, avoiding unnecessary third-party abstractions.
 - **Skip Link**: An accessible skip navigation link at the very top of the DOM targeting `#main-content` for keyboard and screen-reader users.
@@ -53,6 +54,7 @@ The portfolio is structured as a focused single-page application with standard H
 *Note: All specific skills, titles, dates, roles, and project details below are placeholders/examples to be confirmed and supplied by Tamutswa during content definition.*
 
 ### 5.1 Hero Section (`#hero`)
+- **Design & Presentation**: Typography-led, with subtle terminal/code-inspired details. Avoid making the entire hero look like a terminal emulator.
 - **Headline**: Portfolio owner's name, current headline/focus (to be confirmed), and a concise introductory summary.
 - **Call-to-Actions (CTAs)**: Primary actions such as "View Projects" (anchors to `#projects`) and "Contact Me" (anchors to `#contact`).
 - **Quick Links**: Direct links to social profiles (e.g., GitHub, LinkedIn, Email) with descriptive accessible labels (`aria-label`).
@@ -67,6 +69,7 @@ The portfolio is structured as a focused single-page application with standard H
 
 ### 5.4 Projects Section (`#projects`)
 - **Curated Projects**: Focused showcase of personal, academic, or open-source projects.
+- **Card Grid Layout**: Consistent card grid with restrained borders and polished hover transitions.
 - **Project Items**:
   - Title & short description of problem solved.
   - List of technologies used.
@@ -163,10 +166,36 @@ export interface ProfileData {
 
 ---
 
-## 8. Visual Direction (Design Phase Requirement)
-- **Design Principles**: The portfolio visual style will be **modern, professional, distinctive, clean, accessible, and responsive**.
-- **Deferred Specifics**: The exact color palette, specific font pairings, spacing scale, and decorative accents are not locked into any predetermined theme (such as dark slate or predefined hex codes).
-- **Design-Phase Execution**: These visual decisions will be evaluated and established during the dedicated design foundations phase, ensuring strong contrast, aesthetic harmony, and personal fit.
+## 8. Approved Visual & Design Direction
+
+### 8.1 Aesthetic & Design Principles
+- **Overall Style**: Hybrid editorial with an elegant, professional developer aesthetic.
+- **Design Principles**:
+  - **Strong Hierarchy**: Clear distinction between primary, secondary, and supporting information across sections.
+  - **Intentional Whitespace**: Generous and structured spacing to allow content to breathe and enhance readability.
+  - **Responsive Layouts**: Purposeful adaptation ensuring a seamless reading experience across mobile, tablet, and desktop.
+  - **Accessible Contrast**: Strict compliance with WCAG 2.1 AA standards for all text and interactive elements.
+  - **Restrained Visual Effects**: Polished, subtle visual treatments that avoid distracting gimmickry or visual clutter.
+
+### 8.2 Color Foundations
+- **Background**: Dark charcoal.
+- **Primary Text**: Warm cream.
+- **Accent Colors**: To be selected during the design foundations phase (final accent palette not yet chosen).
+
+### 8.3 Typography Strategy
+- **Headings**: Sophisticated serif for selected headings to introduce an editorial character.
+- **Body Text**: Readable sans-serif for body copy, descriptions, and primary content.
+- **Technical Annotations**: Monospace for code snippets, metadata, and technical annotations.
+- *Note: Specific font families are not yet selected and will be determined during the design foundations phase.*
+
+### 8.4 Component & Section Styling Guidance
+- **Hero**: Typography-led, featuring subtle terminal/code-inspired details without making the entire hero look like a terminal emulator.
+- **Navigation**: Understated, responsive, accessible, and easy to use.
+- **Projects**: Consistent card grid with restrained borders and polished hover transitions.
+
+### 8.5 Motion & Transitions
+- **Motion Philosophy**: Balanced, with gentle entrance animations and subtle transitions.
+- **Motion Accessibility**: Strictly respect user preferences with `@media (prefers-reduced-motion: reduce)`, disabling or dampening non-essential animations.
 
 ---
 
@@ -205,7 +234,8 @@ The development will proceed sequentially through clear, actionable stages:
    - Collect confirmed profile details, education, skills, and projects from Tamutswa.
    - Implement `src/types/portfolio.ts` and populate `src/data/portfolioData.ts`.
 2. **Step 2 — Design Foundations**:
-   - Define color palette, typography tokens, and spacing scale in CSS variables.
+   - Translate the approved visual direction (dark charcoal background, warm cream primary text, hybrid editorial style) into CSS custom properties.
+   - Select accent colors, choose specific font families (serif, sans-serif, monospace), and define the spacing scale.
 3. **Step 3 — Layout & Navigation**:
    - Build `Header.tsx` (with mobile menu) and `Footer.tsx`.
    - Implement the page landmarks and skip link using the existing React structure and semantic HTML.
