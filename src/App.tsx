@@ -1,3 +1,4 @@
+import { Skills } from './components/Skills'
 import './App.css'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             </div>
           </div>
         </section>
+        <Skills />
       </main>
 
       <footer className="site-footer">
