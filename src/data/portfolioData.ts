@@ -1,3 +1,9 @@
+export const ABOUT_PARAGRAPHS = [
+  `I'm interested in more than making software work. I want to understand how it works, why it sometimes doesn't, and how to make it better.`,
+  `Working with both software and technical systems has taught me that a problem isn't always where it first appears. Sometimes the challenge is in the code. Other times, it's in how different parts of a system interact. That's one of the things I find interesting about technology: there's usually another layer worth understanding.`,
+  `What interests me most about AI and machine learning is the possibility of building applications that don't just follow instructions, but can learn from data, recognize patterns, and help people make better decisions.`,
+] as const
+
 export const SKILL_CATEGORIES = [
   {
     title: 'Web Development',
