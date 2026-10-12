@@ -1,4 +1,4 @@
-import type { ProjectItem } from '../types/portfolio'
+import type { ContactMethod, ProjectItem } from '../types/portfolio'
 
 export const ABOUT_PARAGRAPHS = [
   `I'm interested in more than making software work. I want to understand how it works, why it sometimes doesn't, and how to make it better.`,
@@ -49,5 +49,25 @@ export const PROJECTS: readonly ProjectItem[] = [
     title: 'ScopeGuard',
     description: 'A planned requirements management tool for understanding how software changes may affect connected features and tests.',
     status: 'Planned',
+  },
+]
+
+export const CONTACT_METHODS: readonly ContactMethod[] = [
+  {
+    id: 'github',
+    label: 'GitHub',
+    availability: 'Available',
+    approvedUrl: 'https://github.com/tamutswamatondoo',
+    accessibleLabel: 'Visit Tamutswa Matondoo on GitHub',
+  },
+  {
+    id: 'email',
+    label: 'Email',
+    availability: 'Pending setup',
+  },
+  {
+    id: 'whatsapp',
+    label: 'WhatsApp',
+    availability: 'Coming soon',
   },
 ]
