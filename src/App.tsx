@@ -1,4 +1,5 @@
 import { About } from './components/About'
+import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
 import './App.css'
 
@@ -38,6 +39,7 @@ function App() {
         </section>
         <About />
         <Skills />
+        <Projects />
       </main>
 
       <footer className="site-footer">
