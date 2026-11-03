@@ -1,5 +1,6 @@
 import { About } from './components/About'
 import { Contact } from './components/Contact'
+import { Header } from './components/Header'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
 import './App.css'
@@ -11,15 +12,7 @@ function App() {
         Skip to content
       </a>
 
-      <header className="site-header">
-        <div className="container header-content">
-          <a className="brand" href="#top" aria-label="Tamutswa Matondo home">
-            <span className="brand-mark mono" aria-hidden="true">{'</>'}</span>
-            <span className="brand-name">Tamutswa Matondo</span>
-          </a>
-          <p className="header-note mono">Software Developer</p>
-        </div>
-      </header>
+      <Header />
 
       <main id="main-content" tabIndex={-1}>
         <section className="hero section" aria-labelledby="hero-title">

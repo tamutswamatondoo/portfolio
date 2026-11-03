@@ -48,7 +48,11 @@
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   border-bottom: var(--border-width) solid var(--color-border);
+  background: var(--color-bg);
 }
 
 .header-content,
@@ -71,6 +75,13 @@
   line-height: 1.4;
   text-decoration: none;
   font-weight: 600;
+}
+
+.header-branding {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
 }
 
 .brand-name {
@@ -97,6 +108,100 @@
   margin: 0;
   color: var(--color-text-muted);
   font-size: 0.8125rem;
+}
+
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin-inline-start: auto;
+  padding: var(--space-1) 0.75rem;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.menu-toggle[aria-expanded='true'] {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.primary-navigation {
+  display: none;
+  flex-basis: 100%;
+  min-width: 0;
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.primary-navigation.is-open {
+  display: block;
+}
+
+.nav-list {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-2) 0 0;
+  list-style: none;
+}
+
+.nav-list a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  min-height: 44px;
+  padding-inline: 0.875rem;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: 1.25rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-list a::after {
+  position: absolute;
+  inset-inline: 0.875rem;
+  inset-block-end: 0.5rem;
+  height: var(--border-width);
+  background: var(--color-accent);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
+}
+
+.nav-list a span {
+  transition: transform var(--transition-fast);
+}
+
+.nav-list a:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.nav-list a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) {
+  .nav-list a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-list a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .nav-list a:hover span {
+    transform: translateX(0.25rem);
+  }
 }
 
 .hero {
@@ -166,6 +271,30 @@
 
   .hero-interests {
     padding: var(--space-4);
+  }
+}
+
+@media (min-width: 800px) {
+  .header-content {
+    flex-wrap: nowrap;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .primary-navigation {
+    display: block;
+    flex-basis: auto;
+    margin-inline-start: auto;
+    border-top: 0;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 0;
   }
 }
 
@@ -387,7 +516,9 @@
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-surface);
-  transition: border-color var(--transition-normal);
+  transition:
+    border-color var(--transition-normal),
+    transform var(--transition-normal);
 }
 
 .project-card:focus-within {
@@ -446,6 +577,7 @@
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-accent);
+  transition: transform var(--transition-normal);
 }
 
 .project-placeholder svg {
@@ -459,6 +591,7 @@
   margin-block: var(--space-3);
   border-radius: var(--radius-sm);
   object-fit: cover;
+  transition: transform var(--transition-normal);
 }
 
 .project-card h3 {
@@ -495,7 +628,11 @@
 
 @media (hover: hover) {
   .project-card:hover {
-    border-color: var(--color-accent);
+    transform: translateY(-0.125rem);
+  }
+
+  .project-card:hover :is(.project-placeholder, .project-image) {
+    transform: translate(0.1875rem, -0.1875rem) rotate(2deg);
   }
 }
 
@@ -565,6 +702,7 @@
   width: 2.5rem;
   height: 2.5rem;
   color: var(--color-accent);
+  transition: transform var(--transition-fast);
 }
 
 .contact-icon svg {
@@ -593,6 +731,7 @@
   flex-shrink: 0;
   color: var(--color-accent);
   font-size: 1.25rem;
+  transition: transform var(--transition-fast);
 }
 
 .contact-entry-link {
@@ -605,8 +744,21 @@
 }
 
 @media (hover: hover) {
-  .contact-entry-link:hover {
-    border-color: var(--color-accent);
+  .contact-entry-link:hover .contact-icon {
+    transform: translate(0.125rem, -0.125rem) rotate(-3deg);
+  }
+
+  .contact-entry-link:hover .contact-arrow {
+    transform: translate(0.25rem, -0.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-list a:hover span,
+  .project-card:hover,
+  .project-card:hover :is(.project-placeholder, .project-image),
+  .contact-entry-link:hover :is(.contact-icon, .contact-arrow) {
+    transform: none;
   }
 }
 
