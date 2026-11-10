@@ -6,6 +6,7 @@ export function Projects() {
     <section id="projects" className="projects section" aria-labelledby="projects-title">
       <div className="container">
         <header className="projects-intro">
+          <p className="section-path mono" aria-hidden="true">~/portfolio/projects</p>
           <h2 id="projects-title">What I'm Building</h2>
           <p>
             A look at the projects on my roadmap, the problems I want to explore, and the applications I plan to develop.

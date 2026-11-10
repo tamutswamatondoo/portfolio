@@ -1,7 +1,7 @@
 :root {
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  color: #f2eee5;
-  background: #171918;
+  color: #eef4f1;
+  background: #020403;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -10,20 +10,24 @@
   color-scheme: dark;
 
   /* Colours */
-  --color-bg: #171918;
-  --color-surface: #222624;
-  --color-text: #f2eee5;
-  --color-text-muted: #b8bdb8;
-  --color-accent: #4ea89d;
-  --color-border: #383e3a;
+  --color-bg: #020403;
+  --color-surface: #070c13;
+  --color-surface-raised: #0b121c;
+  --color-text: #eef4f1;
+  --color-text-muted: #a6b0bc;
+  --color-accent: #28d76f;
+  --color-accent-strong: #14f06a;
+  --color-accent-secondary: #3b9cff;
+  --color-border: #233044;
+  --color-border-strong: #2e455f;
 
   /* Typography */
   --font-body: 'Inter', 'Segoe UI', sans-serif;
-  --font-heading: 'Newsreader', Georgia, serif;
-  --font-mono: 'JetBrains Mono', Consolas, monospace;
+  --font-heading: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
 
   /* Layout */
-  --content-width: 1120px;
+  --content-width: 1180px;
   --page-gutter: clamp(1.25rem, 5vw, 4rem);
 
   /* Spacing */
@@ -36,10 +40,10 @@
 
   /* Borders and transitions */
   --border-width: 1px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --transition-fast: 160ms ease;
-  --transition-normal: 240ms ease;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --transition-fast: 160ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-normal: 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -49,7 +53,7 @@
 html {
   min-width: 320px;
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 7rem;
 }
 
 body {
@@ -60,7 +64,11 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--color-text);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(rgba(40, 215, 111, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 156, 255, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 body,
@@ -111,8 +119,9 @@ h6 {
   margin-top: 0;
   color: var(--color-text);
   font-family: var(--font-heading);
-  font-weight: 500;
-  line-height: 1.15;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
@@ -127,13 +136,13 @@ pre,
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-accent-strong);
   outline-offset: 4px;
 }
 
 ::selection {
   color: var(--color-bg);
-  background: var(--color-accent);
+  background: var(--color-accent-strong);
 }
 
 #root {
