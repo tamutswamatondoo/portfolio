@@ -41,7 +41,7 @@ export function Header() {
             aria-label="Tamutswa Matondo home"
             onClick={closeMenu}
           >
-            <span className="brand-mark mono" aria-hidden="true">{'</>'}</span>
+            <span className="brand-mark mono" aria-hidden="true">{'<TM />'}</span>
             <span className="brand-name">Tamutswa Matondo</span>
           </a>
           <p className="header-note mono">Software Developer</p>

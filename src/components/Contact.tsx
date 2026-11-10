@@ -39,6 +39,7 @@ export function Contact() {
     <section id="contact" className="contact section" aria-labelledby="contact-title">
       <div className="container">
         <header className="contact-intro">
+          <p className="section-path mono" aria-hidden="true">~/portfolio/contact</p>
           <h2 id="contact-title">Let's Connect</h2>
           <p>
             Have a project in mind, an idea worth discussing, or simply want to connect? Feel free to reach out.
@@ -54,8 +55,11 @@ export function Contact() {
                   <ContactIcon id={method.id} />
                 </span>
                 <div className="contact-copy">
-                  <h3>{method.label}</h3>
-                  <p className="contact-availability mono">{method.availability}</p>
+                  <h3 className="contact-title">{method.label}</h3>
+                  <p className="contact-availability mono">
+                    <span className="contact-status-dot" aria-hidden="true" />
+                    {method.availability}
+                  </p>
                 </div>
                 {method.availability === 'Available' && opensInNewTab ? (
                   <span className="contact-arrow" aria-hidden="true">↗</span>
@@ -64,7 +68,11 @@ export function Contact() {
             )
 
             return (
-              <li key={method.id}>
+              <li
+                data-availability={method.availability}
+                data-method={method.id}
+                key={method.id}
+              >
                 {method.availability === 'Available' && method.approvedUrl ? (
                   <a
                     className="contact-entry contact-entry-link"
@@ -76,7 +84,7 @@ export function Contact() {
                     {content}
                   </a>
                 ) : (
-                  <div className="contact-entry">{content}</div>
+                  <div className="contact-entry contact-entry-static">{content}</div>
                 )}
               </li>
             )

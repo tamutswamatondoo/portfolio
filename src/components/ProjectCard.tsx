@@ -31,14 +31,29 @@ export function ProjectCard({ project, number }: ProjectCardProps) {
         />
       ) : (
         <div className="project-placeholder" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16" />
-          </svg>
+          <div className="project-placeholder-chrome">
+            <span className="project-placeholder-dot" />
+            <span className="project-placeholder-dot" />
+            <span className="project-placeholder-dot" />
+          </div>
+          <div className="project-placeholder-body">
+            <svg
+              className="project-placeholder-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16" />
+            </svg>
+          </div>
         </div>
       )}
 
-      <h3 id={titleId}>{project.title}</h3>
-      <p className="project-description">{project.description}</p>
+      <div className="project-card-content">
+        <h3 className="project-title" id={titleId}>{project.title}</h3>
+        <p className="project-description">{project.description}</p>
+      </div>
 
       {project.githubUrl || project.liveUrl ? (
         <div className="project-links">

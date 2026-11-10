@@ -58,7 +58,7 @@ export const CONTACT_METHODS: readonly ContactMethod[] = [
     label: 'GitHub',
     availability: 'Available',
     approvedUrl: 'https://github.com/tamutswamatondoo',
-    accessibleLabel: 'Visit Tamutswa Matondoo on GitHub',
+    accessibleLabel: 'Visit Tamutswa Matondo on GitHub',
   },
   {
     id: 'email',
