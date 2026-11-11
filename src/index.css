@@ -51,13 +51,11 @@
 }
 
 html {
-  min-width: 320px;
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
 }
 
 body {
-  min-width: 320px;
   min-height: 100vh;
   margin: 0;
   font-family: var(--font-body);

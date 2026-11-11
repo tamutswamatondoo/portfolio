@@ -31,6 +31,21 @@ export const SKILL_CATEGORIES = [
 
 export const EXPLORING_TECHNOLOGIES = ['Python', 'React', 'Node.js', 'Linux', 'AWS'] as const
 
+export const EDUCATION_ENTRIES = [
+  {
+    title: 'Remote Collaboration Skills',
+    meta: 'Industry: Freelance Web Development | 2024–Present',
+    description:
+      'Proficient in using tools like GitHub, Zoom, Trello, and Slack for seamless collaboration with remote teams. Experienced in managing tasks, maintaining version control, and communicating asynchronously. Skilled at adapting to time zones and ensuring transparency in progress for efficient, accountable work',
+  },
+  {
+    title: 'Bachelor of Science in Computer Science',
+    meta: 'National University of Science and Technology, Zimbabwe | 2023 - Expected Graduation: 2027',
+    description:
+      'Pursuing a Bachelor of Science in Computer Science at NUST, focused on Web Development, AI, and Embedded Systems. Skilled in HTML, CSS, JavaScript, and Bootstrap, with a passion for blending physical systems with digital solutions.',
+  },
+] as const
+
 export const PROJECTS: readonly ProjectItem[] = [
   {
     id: 'datasift',
